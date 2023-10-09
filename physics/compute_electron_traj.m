@@ -6,7 +6,6 @@ Z = material.Z;
 A = material.A;
 rho = material.rho;
 
-
 % Assign electron initial position
 d = sim_params.beam_rad * 1E-07; % this accounts for d given in nm
 y = d/2  * randn();
@@ -38,7 +37,13 @@ for i=1:sim_params.max_steps
     y = y + step * sin(theta);
 
     if x < 0
+
         electron_properties.isBSE = true;
+        electron_properties.x(i) = x;
+        electron_properties.y(i) = y;
+        electron_properties.E(i) = E;
+        electron_properties.theta(i) = E;
+
         break;
     else
         electron_properties.isBSE = false;
