@@ -38,10 +38,10 @@ for i=1:sim_params.max_steps
     if x < 0
 
         electron_properties.isBSE = true;
-        electron_properties.x(i) = x;
+        electron_properties.x(i) = 0;
         electron_properties.y(i) = y;
         electron_properties.E(i) = E;
-        electron_properties.theta(i) = E;
+        electron_properties.theta(i) = theta;
 
         break;
     else
@@ -57,7 +57,7 @@ for i=1:sim_params.max_steps
         electron_properties.x(i) = x;
         electron_properties.y(i) = y;
         electron_properties.E(i) = E;
-        electron_properties.theta(i) = E;
+        electron_properties.theta(i) = theta;
     end
 end
 

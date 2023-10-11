@@ -8,7 +8,7 @@ clear;
 
 %% Set the parameters of the simulation
 sim_param.beam_E = 20;
-sim_param.beam_rad = 100;
+sim_param.beam_rad = 20;
 sim_param.tilt = 0;
 sim_param.beam_pos = 0;
 sim_param.threshold_energy = 0.1;
@@ -37,6 +37,8 @@ plot_trajectories(sim_results, 100, 2);
 %% Zmax results 
 zmax_bse = compute_zmax_bse(sim_results);
 zmax = compute_zmax(sim_results);
+bse_energy = compute_BSE_energy(sim_results);
+bse_radii = compute_BSE_radii(sim_results);
 
 %% Plot 
 figure(1)
@@ -46,6 +48,10 @@ title = 'BSE';
 figure(2)
 histogram(zmax, 1000);
 title = 'Electrons';
+
+figure(3)
+histogram(bse_radii, 100)
+
 
 
 
