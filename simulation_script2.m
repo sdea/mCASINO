@@ -13,7 +13,7 @@ sim_param.tilt = 0;
 sim_param.beam_pos = 0;
 sim_param.threshold_energy = 0.1;
 sim_param.max_steps = 10000;
-sim_param.num_electrons = 300;
+sim_param.num_electrons = 30000;
 
 %% Set the materials
 %  Only bulk is defined
@@ -33,5 +33,20 @@ end
 
 %% Plot with function
 plot_trajectories(sim_results, 100, 2);
+
+%% Zmax results 
+zmax_bse = compute_zmax_bse(sim_results);
+zmax = compute_zmax(sim_results);
+
+%% Plot 
+figure(1)
+histogram(zmax_bse, 1000);
+title = 'BSE';
+
+figure(2)
+histogram(zmax, 1000);
+title = 'Electrons';
+
+
 
 
