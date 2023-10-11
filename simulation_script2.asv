@@ -52,8 +52,6 @@ title = 'Electrons';
 figure(3)
 histogram(bse_radii, 100)
 
-
-
 %% Plot BSE radii in an image
 %  Get the counts 
 n_bins = 100;
@@ -68,17 +66,9 @@ tmp_dist = bwdist(tmp_im);
 
 for i=1:n_bins
 
-    j = n_bins + 1 - i;
-    bse_distribution(tmp_dist < j) = n(j);
+    
 
 end
-
-figure(5)
-imagesc(bse_distribution)
-colormap('jet')
-title('BSE Radial Distribution');
-axis image 
-
 
 
 
